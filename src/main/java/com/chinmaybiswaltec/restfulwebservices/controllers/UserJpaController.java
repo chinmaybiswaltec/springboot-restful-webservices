@@ -46,7 +46,7 @@ public class UserJpaController {
 		if (!user.isPresent()) {
 			throw new UserNotFoundException("id: " + id);
 		}
-		EntityModel model = EntityModel.of(user.get());
+		EntityModel<User> model = EntityModel.of(user.get());
 		WebMvcLinkBuilder linkToUsers = linkTo(methodOn(this.getClass()).getAllUser());
 		model.add(linkToUsers.withRel("all-users"));
 		return model;
